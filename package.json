@@ -4,8 +4,20 @@
   "description": "",
   "main": "dist/app.js",
   "scripts": {
-    "dev": "nodemon --exec ts-node src/app.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/app.ts",
+    "test": "jest --coverage"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ],
+    "moduleNameMapper": {
+      "^@src/(.*)$": "<rootDir>/src/$1",
+      "^@__tests__/(.*)$": "<rootDir>/__tests__/$1"
+    }
   },
   "keywords": [],
   "author": "",
@@ -25,9 +37,12 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/express-list-endpoints": "^6.0.3",
+    "@types/jest": "^29.5.12",
     "@types/node": "^20.12.5",
     "@types/uuid": "^9.0.8",
+    "jest": "^29.7.0",
     "nodemon": "^3.1.0",
+    "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.4"
   }
